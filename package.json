@@ -9,6 +9,7 @@
     "react-scripts": "3.0.0",
     "react-use-localstorage": "^3.0.1-alpha.0",
     "styled-components": "^4.2.0",
+    "use-clippy": "^1.0.3",
     "use-immer": "^0.3.0",
     "use-socket.io-client": "^1.0.4"
   },

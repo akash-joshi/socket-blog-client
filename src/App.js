@@ -73,13 +73,14 @@ export default () => {
   const handleSubmit = e => {
     e.preventDefault();
     const name = document.querySelector('#name').value.trim();
+    const room_value = document.querySelector('#room').value.trim();
     console.log(name);
     if (!name) {
       return alert("Name can't be empty");
     }
     setId(name);
-    setRoom(document.querySelector('#room').value.trim());
-    socket.emit("join", name,room);
+    setRoom(room_value);
+    socket.emit("join", name,room_value);
   };
 
   const handleSend = e => {
@@ -102,7 +103,7 @@ export default () => {
   return id !== '' ? (
     <section style={{display:'flex',flexDirection:'row'}} >
       <ul id="messages"><Messages data={messages} /></ul>
-      <ul id="online"> {online ? '❤️ You are Online' : '💛 You are Offline'} <a onClick={()=>logOut()} href='#'><div style={{float:'right'}}>❌</div></a><hr/><Online data={onlineList} /> </ul>
+      <ul id="online"> <a onClick={()=>logOut()} href='#'><div style={{float:'right'}}>❌</div></a> {online ? '❤️ You are Online' : '💛 You are Offline'} <hr/><Online data={onlineList} /> </ul>
       <div id="sendform">
         <form onSubmit={e => handleSend(e)} style={{display: 'flex'}}>
             <input id="m" />
